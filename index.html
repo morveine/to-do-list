@@ -5,20 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <form action="" id="new-task-form">
-        <label for="task-name">Task:</label>
-        <input type="text" name="task-name">
-        <label for="task-desc">Description</label>
-        <input type="text" name="task-desc">
-        <label for="task-deadline">Deadline:</label>
-        <input type="datetime-local" name="task-deadline">
-        <input type="submit" value="Submit">
-    </form>
+    <header>
+        <div class="header-wrapper">
+            <div class="logo-name">
+                <svg height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17 2C17 1.44772 16.5523 1 16 1C15.4477 1 15 1.44772 15 2V3H9V2C9 1.44772 8.55228 1 8 1C7.44772 1 7 1.44772 7 2V3H5C3.34315 3 2 4.34315 2 6V20C2 21.6569 3.34315 23 5 23H19C20.6569 23 22 21.6569 22 20V6C22 4.34315 20.6569 3 19 3H17V2ZM20 9V6C20 5.44772 19.5523 5 19 5H17V6C17 6.55228 16.5523 7 16 7C15.4477 7 15 6.55228 15 6V5H9V6C9 6.55228 8.55228 7 8 7C7.44772 7 7 6.55228 7 6V5H5C4.44772 5 4 5.44772 4 6V9H20ZM4 11H20V20C20 20.5523 19.5523 21 19 21H5C4.44772 21 4 20.5523 4 20V11Z"></path>
+                    </g>
+                </svg>
+                <p class=" page-name">lil to-do</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <div class="sidebar-folder">
+                <svg class="folder-icon" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <title></title>
+                        <g id="Complete">
+                            <g id="folder">
+                                <path
+                                    d="M2,18.8V5.3A2.3,2.3,0,0,1,4.3,3H9.6a1.1,1.1,0,0,1,.8.4l2.8,3.2a1.1,1.1,0,0,0,.8.4h5.6A2.2,2.2,0,0,1,22,9.2v9.7A2.2,2.2,0,0,1,19.8,21H4.2A2.2,2.2,0,0,1,2,18.8Z"
+                                    fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2"></path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <p class="folder-name">Home</p>
+            </div>
+            <div class="sidebar-folder">
+                <svg class="folder-icon" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <title></title>
+                        <g id="Complete">
+                            <g id="folder">
+                                <path
+                                    d="M2,18.8V5.3A2.3,2.3,0,0,1,4.3,3H9.6a1.1,1.1,0,0,1,.8.4l2.8,3.2a1.1,1.1,0,0,0,.8.4h5.6A2.2,2.2,0,0,1,22,9.2v9.7A2.2,2.2,0,0,1,19.8,21H4.2A2.2,2.2,0,0,1,2,18.8Z"
+                                    fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2"></path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <p class="folder-name">Personal</p>
+            </div>
+        </div>
+        <div class="main-content-wrapper">
+            <h1>Tasks</h1>
+            <div id="tasks-wrapper">
+                <div class="task" id="task-template">
+                    <label><input type="checkbox" name="" id=""><span class="dom-task-name"></span></label>
+                    <p class="description"></p>
+                    <p class="deadline"></p>
+                </div>
+            </div>
+            <form action="" id="new-task-form">
+                <label for="task-name">Task:</label>
+                <input type="text" name="task-name" id="task-name">
+                <label for="task-desc">Description</label>
+                <input type="text" name="task-desc" id="task-desc">
+                <label for="task-deadline">Deadline:</label>
+                <input type="datetime-local" name="task-deadline" id="task-deadline">
+                <label for="done"><input type="checkbox" name="done" id="done">Done</label>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </main>
     <script src="index.js"></script>
 </body>
 
