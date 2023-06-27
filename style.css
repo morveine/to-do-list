@@ -8,42 +8,48 @@
 /* variables */
 
 :root {
-    --lavender-pink: #FFADE5;
-    --peach: #F7C59F;
-    --space-cadet: #2A324B;
-    --slate-gray: #767B91;
-    --electric-blue: #8AF3FF;
+    --lavender: #D8DDEF;
+    --accent-pink: #f96d87;
+    --background-beige: #f9f8f2;
+    --text-black: #27232C;
     font-family: 'Kanit', sans-serif;
 }
 
 /* style */
 
-body > * {
-    /* padding: 0 3%; */
+body {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 5fr;
+    grid-template-rows: 50px auto;
+    height: 100dvh;
+    background-color: var(--background-beige);
+    color: var(--text-black);
 }
 
 header {
-    background-color: var(--lavender-pink);
+    background-color: var(--accent-pink);
+    grid-column: 1/3;
+    color: white;
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 5fr;
 }
 
 .logo-name {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
-}
-
-.logo-name>p {
+    grid-column: 1/2;
     font-size: 1.2rem;
 }
 
-main {
-    display: flex;
+.dummy {
+    grid-column: 2/3;
+    display: inline-block;
 }
 
-.sidebar {
-    background-color: var(--slate-gray);
-    width: 300px;
-    height: 100vh;
+aside {
+    border-right: var(--accent-pink) 1px solid;
 }
 
 #task-template {
