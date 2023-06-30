@@ -7,14 +7,14 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
         <div class="logo-name">
-            <svg height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"
+            <svg height="2rem" viewBox="2 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"
                 stroke-width="0.00024000000000000003">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -28,12 +28,11 @@
             </svg>
             <p class=" page-name">lil to-do</p>
         </div>
-        <div class="dummy"></div>
     </header>
     <aside>
+        <h2>Folders</h2>
         <div class="sidebar-folder">
-            <svg class="folder-icon" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                fill="#000000">
+            <svg class="folder-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -42,7 +41,7 @@
                         <g id="folder">
                             <path
                                 d="M2,18.8V5.3A2.3,2.3,0,0,1,4.3,3H9.6a1.1,1.1,0,0,1,.8.4l2.8,3.2a1.1,1.1,0,0,0,.8.4h5.6A2.2,2.2,0,0,1,22,9.2v9.7A2.2,2.2,0,0,1,19.8,21H4.2A2.2,2.2,0,0,1,2,18.8Z"
-                                fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                fill="none" stroke="#27232C" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="1.2"></path>
                         </g>
                     </g>
@@ -51,7 +50,7 @@
             <p class="folder-name">Home</p>
         </div>
         <div class="sidebar-folder">
-            <svg class="folder-icon" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+            <svg class="folder-icon" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                 fill="#000000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -61,7 +60,7 @@
                         <g id="folder">
                             <path
                                 d="M2,18.8V5.3A2.3,2.3,0,0,1,4.3,3H9.6a1.1,1.1,0,0,1,.8.4l2.8,3.2a1.1,1.1,0,0,0,.8.4h5.6A2.2,2.2,0,0,1,22,9.2v9.7A2.2,2.2,0,0,1,19.8,21H4.2A2.2,2.2,0,0,1,2,18.8Z"
-                                fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                fill="none" stroke="#27232C" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="1.2"></path>
                         </g>
                     </g>
@@ -71,24 +70,193 @@
         </div>
     </aside>
     <main>
-        <h1>Tasks</h1>
-        <div id="tasks-wrapper">
-            <div class="task" id="task-template">
-                <label><input type="checkbox" name="" id=""><span class="dom-task-name"></span></label>
-                <p class="description"></p>
-                <p class="deadline"></p>
+        <div class="main-content">
+            <div id="tasks-wrapper">
+                <h1>Tasks</h1>
+                <div class="task" id="task-template">
+                    <div class="task-checkbox-wrapper">
+                        <div class="task-checkbox"><input type="checkbox" name="checkbox" id="checkbox1">
+                            <svg class="unchecked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg"
+                                fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z"
+                                        fill="none" stroke="#f96d87" stroke-linecap="round" stroke-linejoin="round"
+                                        transform="translate(3 3)"></path>
+                                </g>
+                            </svg>
+                            <svg class="checked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g fill="none" fill-rule="evenodd" stroke="#f96d87" stroke-linecap="round"
+                                        stroke-linejoin="round" transform="translate(3 3)">
+                                        <path
+                                            d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z">
+                                        </path>
+                                        <path d="m4.5 7.5 2 2 4-4"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="task-vertical">
+                        <label for="checkbox1"><span class="dom-task-name">Make an "add new" button</span></label>
+                        <span class="description">for folders and tasks</span>
+                    </div>
+                    <div class="task-horisontal"><span class="deadline">30 Jun 23</span></div>
+                </div>
+                <div class="task" id="task-template">
+                    <div class="task-checkbox-wrapper">
+                        <div class="task-checkbox"><input type="checkbox" name="checkbox" id="checkbox2">
+                            <svg class="unchecked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg"
+                                fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z"
+                                        fill="none" stroke="#f96d87" stroke-linecap="round" stroke-linejoin="round"
+                                        transform="translate(3 3)"></path>
+                                </g>
+                            </svg>
+                            <svg class="checked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g fill="none" fill-rule="evenodd" stroke="#f96d87" stroke-linecap="round"
+                                        stroke-linejoin="round" transform="translate(3 3)">
+                                        <path
+                                            d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z">
+                                        </path>
+                                        <path d="m4.5 7.5 2 2 4-4"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="task-vertical">
+                        <label for="checkbox2"><span class="dom-task-name">change folders to buttons and style them</span></label>
+                        <span class="description"></span>
+                    </div>
+                    <div class="task-horisontal"><span class="deadline">30 Jun 23</span></div>
+                </div>
+                <div class="task" id="task-template">
+                    <div class="task-checkbox-wrapper">
+                        <div class="task-checkbox"><input type="checkbox" name="checkbox" id="checkbox3">
+                            <svg class="unchecked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg"
+                                fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z"
+                                        fill="none" stroke="#f96d87" stroke-linecap="round" stroke-linejoin="round"
+                                        transform="translate(3 3)"></path>
+                                </g>
+                            </svg>
+                            <svg class="checked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g fill="none" fill-rule="evenodd" stroke="#f96d87" stroke-linecap="round"
+                                        stroke-linejoin="round" transform="translate(3 3)">
+                                        <path
+                                            d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z">
+                                        </path>
+                                        <path d="m4.5 7.5 2 2 4-4"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="task-vertical">
+                        <label for="checkbox3"><span class="dom-task-name">add edit buttons to tasks</span></label>
+                        <span class="description">write logic for editing, should make the same form as adding, but with pre-written values</span>
+                    </div>
+                    <div class="task-horisontal"><span class="deadline">30 Jun 23</span></div>
+                </div>
+                <div class="task" id="task-template">
+                    <div class="task-checkbox-wrapper">
+                        <div class="task-checkbox"><input type="checkbox" name="checkbox" id="checkbox4">
+                            <svg class="unchecked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg"
+                                fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z"
+                                        fill="none" stroke="#f96d87" stroke-linecap="round" stroke-linejoin="round"
+                                        transform="translate(3 3)"></path>
+                                </g>
+                            </svg>
+                            <svg class="checked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g fill="none" fill-rule="evenodd" stroke="#f96d87" stroke-linecap="round"
+                                        stroke-linejoin="round" transform="translate(3 3)">
+                                        <path
+                                            d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z">
+                                        </path>
+                                        <path d="m4.5 7.5 2 2 4-4"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="task-vertical">
+                        <label for="checkbox4"><span class="dom-task-name">write JS for crossing out done tasks</span></label>
+                        <span class="description">+ maybe animate them</span>
+                    </div>
+                    <div class="task-horisontal"><span class="deadline">30 Jun 23</span></div>
+                </div>
+                <div class="task" id="task-template">
+                    <div class="task-checkbox-wrapper">
+                        <div class="task-checkbox"><input type="checkbox" name="checkbox" id="checkbox5">
+                            <svg class="unchecked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg"
+                                fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z"
+                                        fill="none" stroke="#f96d87" stroke-linecap="round" stroke-linejoin="round"
+                                        transform="translate(3 3)"></path>
+                                </g>
+                            </svg>
+                            <svg class="checked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g fill="none" fill-rule="evenodd" stroke="#f96d87" stroke-linecap="round"
+                                        stroke-linejoin="round" transform="translate(3 3)">
+                                        <path
+                                            d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z">
+                                        </path>
+                                        <path d="m4.5 7.5 2 2 4-4"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="task-vertical">
+                        <label for="checkbox5"><span class="dom-task-name">Fix the problem with long task names</span></label>
+                        <span class="description">pls</span>
+                    </div>
+                    <div class="task-horisontal"><span class="deadline">9 Jun 23</span></div>
+                </div>
             </div>
+            <form action="" id="new-task-form">
+                <input type="text" name="task-name" id="task-name" placeholder="Task name">
+                <input type="text" name="task-desc" id="task-desc" placeholder="Description">
+                <input type="text" name="task-deadline" id="task-deadline" placeholder="Due date"
+                    onfocus="(this.type='date')" onblur="(this.type='text')">
+                <input type="submit" value="Submit" id="submit">
+            </form>
         </div>
-        <form action="" id="new-task-form">
-            <label for="task-name">Task:</label>
-            <input type="text" name="task-name" id="task-name">
-            <label for="task-desc">Description</label>
-            <input type="text" name="task-desc" id="task-desc">
-            <label for="task-deadline">Deadline:</label>
-            <input type="datetime-local" name="task-deadline" id="task-deadline">
-            <label for="done"><input type="checkbox" name="done" id="done">Done</label>
-            <input type="submit" value="Submit">
-        </form>
     </main>
     <script src="index.js"></script>
 </body>

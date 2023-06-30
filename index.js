@@ -47,7 +47,7 @@ function makeNewTask(e) {
     addTaskToDOM(task);
 }
 
-function addTaskToDOM(task){
+function addTaskToDOM(task){  // TODO: change id of task when adding
     const clone = taskTemplate.cloneNode(true);
     taskWrapper.appendChild(clone);
     clone.querySelector('.dom-task-name').textContent = task.name;
@@ -65,3 +65,6 @@ function makeFolder(){}
 function addToFolder(){}
 
 function markTaskAsDone(){}
+
+function addFoldertoSidebar(){}
+
