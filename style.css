@@ -38,12 +38,14 @@ header {
     grid-template-columns: minmax(200px, 250px) 5fr;
 }
 
+
 .logo-name {
     display: flex;
     align-items: center;
     gap: 1rem;
     grid-column: 1/2;
     font-size: 1.2rem;
+    user-select: none;
 }
 
 aside {
@@ -64,6 +66,12 @@ aside>h2 {
     font-size: 1.2rem;
     cursor: pointer;
     border-radius: 12px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline-color: var(--accent-pink);
+    font-family: 'Kanit', sans-serif;
+    font-weight: 200;
 }
 
 .folder-icon {
@@ -175,6 +183,7 @@ h1 {
     font-style: italic;
     font-weight: 200;
 }
+
 /* MAKE THIS WITH JAVASCRIPT*/
 
 .dom-task-name {
@@ -193,7 +202,8 @@ h1 {
     white-space: nowrap;
 }
 
-#new-task-form {
+#new-task-form,
+#new-folder-form {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--accent-pink);
@@ -204,7 +214,9 @@ h1 {
     gap: 0.1rem;
 }
 
-#new-task-form>* {
+#new-task-form>*,
+#new-folder-form>*,
+.form-buttons>* {
     font-family: 'Kanit', sans-serif;
     background-color: var(--background-beige);
     border: none;
@@ -212,12 +224,18 @@ h1 {
     outline-width: 1px;
 }
 
+#new-folder-form {
+    padding: 0.8rem;
+}
+
 #task-name,
-#task-desc {
+#task-desc,
+#input-folder-name {
     padding: 0.3rem;
 }
 
-#task-name::placeholder {
+#task-name::placeholder,
+#input-folder-name::placeholder {
     font-size: 1rem;
     padding: 0;
 }
@@ -234,13 +252,57 @@ h1 {
     margin-left: 0.3rem;
 }
 
-#submit {
+#submit,
+#add-folder-button,
+#cancel {
     background-color: var(--accent-pink);
-    width: fit-content;
     color: var(--background-beige);
     padding: 0.3rem;
     border-radius: 6px;
     margin-top: 0.5rem;
     margin-left: 0.3rem;
     outline-color: var(--text-black);
+    cursor: pointer;
+}
+
+
+.add-folder {
+    padding: 0.8rem;
+}
+
+.add-task {
+    padding: 0.5rem 0;
+}
+
+.add-task,
+.add-folder {
+    font-family: 'Kanit', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 100%;
+    outline-color: var(--accent-pink);
+    border-radius: 6px;
+}
+
+.add-task:hover,
+.add-folder:hover {
+    background-color: var(--opaque-pink);
+}
+
+#submit,
+#cancel {
+    width: 10%;
+}
+
+#add-folder-button {
+    width: 30%;
+}
+
+.hidden {
+    display: none !important;
 }
