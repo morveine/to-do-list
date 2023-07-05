@@ -18,7 +18,7 @@ addTaskButton.addEventListener('click', () => {
     showElement(newTaskForm);
 });
 
-formCancelButton.addEventListener('click', (e)=>{
+formCancelButton.addEventListener('click', (e) => {
     e.preventDefault();
     hideElement(newTaskForm);
     showElement(addTaskButton);
@@ -39,17 +39,25 @@ class Task {
 }
 
 class Folder {
-    constructor(name){
+    constructor(name) {
         this.name = name;
         this.tasks = []
     }
-    addTask(task){
+    addTask(task) {
         this.tasks.push(task);
         // return this.tasks;
     }
 }
 
 let home = new Folder('Home');
+let tasks = [
+    new Task('Make an "add new" and "delete" button', 'for folders and tasks', '30 Jun 23', false),
+    new Task('change folders to buttons and style them', '', '30 Jun 23'),
+    new Task('add edit buttons to tasks', 'write logic for editing, should make the same form as adding, but with pre - written values', '30 Jun 23'),
+    new Task('write JS for crossing out done tasks', '+ maybe animate them', '30 Jun 23', true),
+    new Task('Fix the problem with long task names', 'pls', '30 Jun 23'),
+];
+tasks.forEach(task => addTaskToDOM(task));
 
 
 function makeNewTask(e) {
@@ -60,38 +68,44 @@ function makeNewTask(e) {
     const deadline = data.get('task-deadline');
     const done = data.get('done');
     const task = new Task(name, desc, deadline, done);
-    home.addTask(task);
-    console.log(home.tasks);
+    home.addTask(task); // this should be removed and a new value set for folder
     newTaskForm.reset();
     addTaskToDOM(task);
 }
 
-function addTaskToDOM(task){  // TODO: change id of task when adding
+function addTaskToDOM(task) {  // TODO: change id of task when adding
     const clone = taskTemplate.cloneNode(true);
+    clone.classList.remove('hidden');
     taskWrapper.appendChild(clone);
     clone.querySelector('.dom-task-name').textContent = task.name;
-	clone.querySelector('.description').textContent = task.description;
-	clone.querySelector('.deadline').textContent = task.deadline;
-    clone.id;
+    clone.querySelector('.description').textContent = task.description;
+    clone.querySelector('.deadline').textContent = task.deadline;
+    clone.querySelector('.task-checkbox>input').id = task.id;
+    clone.querySelector('.task-vertical>label').htmlFor = task.id;
+    clone.addEventListener('change', (e) => {
+        clone.classList.toggle('task-checked');
+        task.done = e.target.checked;
+    })
+    clone.removeAttribute('id');
 }
 
 // function deleteTask(){}
 
-function editTask(){} // should be able to change name, description, deadline, everything
+function editTask() { } // should be able to change name, description, deadline, everything
 
-function makeNewFolder(){}
+function makeNewFolder() { }
 
-function addToFolder(){} // all tasks created inside a folder belong to that folder
+function addToFolder() { } // all tasks created inside a folder belong to that folder
 
-function markTaskAsDone(){} // should change style of task and move it away
+function markTaskAsDone() { } // should change style of task and move it away
 
-function addFoldertoSidebar(){}
+function addFoldertoSidebar() { }
 
-function showElement(el){
+function showElement(el) {
     el.classList.remove('hidden');
 }
 
-function hideElement(el){
+function hideElement(el) {
     el.classList.add('hidden');
 }
 

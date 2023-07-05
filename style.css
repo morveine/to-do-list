@@ -177,7 +177,7 @@ h1 {
     display: none;
 }
 
-.task:has(.task-checkbox>input[type='checkbox']:checked) .task-vertical>label {
+.task-checked{
     color: grey;
     text-decoration: line-through;
     font-style: italic;
