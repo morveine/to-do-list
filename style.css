@@ -296,7 +296,7 @@ h1 {
 
 #submit,
 #cancel {
-    width: 10%;
+    min-width: 3.5rem;
 }
 
 #add-folder-button {
