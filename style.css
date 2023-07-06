@@ -254,7 +254,8 @@ h1 {
 
 #submit,
 #add-folder-button,
-#cancel {
+#cancel,
+#cancel-folder{
     background-color: var(--accent-pink);
     color: var(--background-beige);
     padding: 0.3rem;
@@ -295,7 +296,8 @@ h1 {
 }
 
 #submit,
-#cancel {
+#cancel,
+#cancel-folder {
     min-width: 3.5rem;
 }
 

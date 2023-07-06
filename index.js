@@ -11,20 +11,34 @@ const taskTemplate = document.getElementById('task-template');
 const taskWrapper = document.getElementById('tasks-wrapper');
 const addTaskButton = document.getElementsByClassName('add-task')[0];
 const addFolderButton = document.getElementsByClassName('add-folder')[0];
-const formCancelButton = document.getElementById('cancel');
+const taskFormCancelButton = document.getElementById('cancel');
+const folderFormCancelButton = document.getElementById('cancel-folder');
 
+// show and hide forms for adding new things
 addTaskButton.addEventListener('click', () => {
     hideElement(addTaskButton);
     showElement(newTaskForm);
 });
 
-formCancelButton.addEventListener('click', (e) => {
+taskFormCancelButton.addEventListener('click', (e) => {
     e.preventDefault();
     hideElement(newTaskForm);
     showElement(addTaskButton);
 })
 
+addFolderButton.addEventListener('click', ()=> {
+    hideElement(addFolderButton);
+    showElement(newFolderForm);
+})
+
+taskFormCancelButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    hideElement(newFolderForm);
+    showElement(addFolderButton);
+})
+
 newTaskForm.addEventListener('submit', makeNewTask);
+newFolderForm.addEventListener('submit', makeNewFolder);
 
 let n = 1;
 class Task {
@@ -49,6 +63,8 @@ class Folder {
     }
 }
 
+let folders = []
+
 let home = new Folder('Home');
 let tasks = [
     new Task('Make an "add new" and "delete" button', 'for folders and tasks', '30 Jun 23', false),
@@ -59,6 +75,8 @@ let tasks = [
 ];
 tasks.forEach(task => addTaskToDOM(task));
 
+localStorage.setItem('tasks', JSON.stringify(tasks));
+
 
 function makeNewTask(e) {
     e.preventDefault();
@@ -66,11 +84,13 @@ function makeNewTask(e) {
     const name = data.get('task-name');
     const desc = data.get('task-desc');
     const deadline = data.get('task-deadline');
-    const done = data.get('done');
-    const task = new Task(name, desc, deadline, done);
+    const task = new Task(name, desc, deadline);
+    console.log(task);
     home.addTask(task); // this should be removed and a new value set for folder
     newTaskForm.reset();
     addTaskToDOM(task);
+    tasks.push(task);
+    rewriteLocalStorage()
 }
 
 function addTaskToDOM(task) {  // TODO: change id of task when adding
@@ -89,15 +109,17 @@ function addTaskToDOM(task) {  // TODO: change id of task when adding
     clone.removeAttribute('id');
 }
 
-// function deleteTask(){}
+function deleteTask(){
+    rewriteLocalStorage();
+}
 
 function editTask() { } // should be able to change name, description, deadline, everything
 
-function makeNewFolder() { }
+function makeNewFolder(e) {
+    e.preventDefault();
+}
 
 function addToFolder() { } // all tasks created inside a folder belong to that folder
-
-function markTaskAsDone() { } // should change style of task and move it away
 
 function addFoldertoSidebar() { }
 
@@ -109,3 +131,11 @@ function hideElement(el) {
     el.classList.add('hidden');
 }
 
+function rewriteLocalStorage(){
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+
+// rendering HTML should be based on the contents of every folder. localStorage should save a list of tasks with the key = folder name, by default the app should have a Home folder.
+// TODO: make it so 'Tasks' heading is changed to the folder name
+// figure out date rendering format in tasks, its ugly now
