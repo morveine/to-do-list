@@ -99,6 +99,8 @@ main {
 .main-content {
     max-height: 100%;
     overflow: auto;
+    max-width: 900px;
+    margin: 0 auto 1rem;
 }
 
 h1 {
@@ -114,7 +116,7 @@ h1 {
     flex-direction: column;
     gap: 0.5rem;
     max-width: 900px;
-    margin: 0 auto 1rem;
+    margin-bottom: 1rem;
 }
 
 .task {
@@ -177,7 +179,7 @@ h1 {
     display: none;
 }
 
-.task-checked{
+.task-checked {
     color: grey;
     text-decoration: line-through;
     font-style: italic;
@@ -255,7 +257,7 @@ h1 {
 #submit,
 #add-folder-button,
 #cancel,
-#cancel-folder{
+#cancel-folder {
     background-color: var(--accent-pink);
     color: var(--background-beige);
     padding: 0.3rem;
