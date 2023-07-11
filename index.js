@@ -1,17 +1,17 @@
-// to-do app
-// need to create a 'task' object, it should have a name, deadline, description, state (done/not done)
-// needs to have folders with different tasks
-// logic for loading folders - perhaps add a property to class and cycle through? or better to have a folder 'list' that's gonna have all the tasks in it rather than check all the tasks
-// function to delete tasks completely
-// separate 'done' folder
 
 const newTaskForm = document.getElementById('new-task-form');
-const newFolderForm = document.getElementById('new-folder-form')
+const newFolderForm = document.getElementById('new-folder-form');
+
 const taskTemplate = document.getElementById('task-template');
+const folderTemplate = document.getElementById('folder-template');
+
 const taskWrapper = document.getElementById('tasks-wrapper');
+const folderWrapper = document.getElementById('folder-wrapper');
+
 const addTaskButton = document.getElementsByClassName('add-task')[0];
 const addFolderButton = document.getElementsByClassName('add-folder')[0];
-const taskFormCancelButton = document.getElementById('cancel');
+
+const taskFormCancelButton = document.getElementById('cancel-task');
 const folderFormCancelButton = document.getElementById('cancel-folder');
 
 // show and hide forms for adding new things
@@ -26,12 +26,12 @@ taskFormCancelButton.addEventListener('click', (e) => {
     showElement(addTaskButton);
 })
 
-addFolderButton.addEventListener('click', ()=> {
+addFolderButton.addEventListener('click', () => {
     hideElement(addFolderButton);
     showElement(newFolderForm);
 })
 
-taskFormCancelButton.addEventListener('click', (e) => {
+folderFormCancelButton.addEventListener('click', (e) => {
     e.preventDefault();
     hideElement(newFolderForm);
     showElement(addFolderButton);
@@ -59,24 +59,11 @@ class Folder {
     }
     addTask(task) {
         this.tasks.push(task);
-        // return this.tasks;
     }
 }
 
-let folders = []
-
-let home = new Folder('Home');
-let tasks = [
-    new Task('Make an "add new" and "delete" button', 'for folders and tasks', '30 Jun 23', false),
-    new Task('change folders to buttons and style them', '', '30 Jun 23'),
-    new Task('add edit buttons to tasks', 'write logic for editing, should make the same form as adding, but with pre - written values', '30 Jun 23'),
-    new Task('write JS for crossing out done tasks', '+ maybe animate them', '30 Jun 23', true),
-    new Task('Fix the problem with long task names', 'pls', '30 Jun 23'),
-];
-tasks.forEach(task => addTaskToDOM(task));
-
-localStorage.setItem('tasks', JSON.stringify(tasks));
-
+let folders = [];
+let currentFolder; // eventListener on each button should change this
 
 function makeNewTask(e) {
     e.preventDefault();
@@ -85,11 +72,10 @@ function makeNewTask(e) {
     const desc = data.get('task-desc');
     const deadline = data.get('task-deadline');
     const task = new Task(name, desc, deadline);
-    console.log(task);
-    home.addTask(task); // this should be removed and a new value set for folder
+    // currentFolder.addTask(task); 
     newTaskForm.reset();
     addTaskToDOM(task);
-    tasks.push(task);
+    currentFolder.addTask(task);
     rewriteLocalStorage()
 }
 
@@ -109,19 +95,33 @@ function addTaskToDOM(task) {  // TODO: change id of task when adding
     clone.removeAttribute('id');
 }
 
-function deleteTask(){
+
+function makeNewFolder(e) {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const name = data.get('input-folder-name');
+    const folder = new Folder(name);
+    newFolderForm.reset();
+    addFoldertoDOM(folder);
+    folders.push(folder);
+    rewriteLocalStorage();
+}
+
+function addFoldertoDOM(folder) {
+    const clone = folderTemplate.cloneNode(true);
+    clone.classList.remove('hidden');
+    folderWrapper.appendChild(clone);
+    clone.querySelector('.folder-name').textContent = folder.name;
+    clone.removeAttribute('id');
+}
+
+function deleteTask() {
     rewriteLocalStorage();
 }
 
 function editTask() { } // should be able to change name, description, deadline, everything
 
-function makeNewFolder(e) {
-    e.preventDefault();
-}
-
 function addToFolder() { } // all tasks created inside a folder belong to that folder
-
-function addFoldertoSidebar() { }
 
 function showElement(el) {
     el.classList.remove('hidden');
@@ -131,8 +131,12 @@ function hideElement(el) {
     el.classList.add('hidden');
 }
 
-function rewriteLocalStorage(){
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+function rewriteLocalStorage() {
+    // localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function renderHtml(folder) {
+
 }
 
 

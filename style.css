@@ -256,7 +256,7 @@ h1 {
 
 #submit,
 #add-folder-button,
-#cancel,
+#cancel-task,
 #cancel-folder {
     background-color: var(--accent-pink);
     color: var(--background-beige);
