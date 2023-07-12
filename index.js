@@ -14,6 +14,8 @@ const addFolderButton = document.getElementsByClassName('add-folder')[0];
 const taskFormCancelButton = document.getElementById('cancel-task');
 const folderFormCancelButton = document.getElementById('cancel-folder');
 
+const h1 = document.querySelector('h1');
+
 // show and hide forms for adding new things
 addTaskButton.addEventListener('click', () => {
     hideElement(addTaskButton);
@@ -136,10 +138,15 @@ function rewriteLocalStorage() {
 }
 
 function renderHtml(folder) {
-
+    h1 = folder.name;
 }
 
 
 // rendering HTML should be based on the contents of every folder. localStorage should save a list of tasks with the key = folder name, by default the app should have a Home folder.
 // TODO: make it so 'Tasks' heading is changed to the folder name
 // figure out date rendering format in tasks, its ugly now
+// deleting folders should be confirmed by user if folder is not empty, tasks can go without confirmation
+// editing tasks - show button on hover
+// figure where to put done tasks and if you should delete them every 24h
+// add edit buttons and functionality
+// write localStorage functionality
