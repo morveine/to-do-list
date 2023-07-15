@@ -67,7 +67,7 @@
             Add folder
         </button>
         <form id="new-folder-form" class="hidden">
-            <input type="text" name="input-folder-name" id="input-folder-name" placeholder="Folder name">
+            <input type="text" name="input-folder-name" id="input-folder-name" placeholder="Folder name" required>
             <div class="form-buttons">
                 <input type="submit" value="Add" id="add-folder-button">
                 <button id="cancel-folder">Cancel</button>
@@ -130,7 +130,7 @@
                 Add task
             </button>
             <form action="" id="new-task-form" class="hidden">
-                <input type="text" name="task-name" id="task-name" placeholder="Task name">
+                <input type="text" name="task-name" id="task-name" placeholder="Task name" required>
                 <input type="text" name="task-desc" id="task-desc" placeholder="Description">
                 <input type="text" name="task-deadline" id="task-deadline" placeholder="Due date"
                     onfocus="(this.type='date')" onblur="(this.type='text')">

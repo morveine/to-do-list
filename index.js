@@ -64,8 +64,10 @@ class Folder {
     }
 }
 
-let folders = [];
-let currentFolder; // eventListener on each button should change this
+let folders = [
+    new Folder('Home'),
+];
+let currentFolder = folders[0]; // eventListener on each button should change this
 
 function makeNewTask(e) {
     e.preventDefault();
@@ -74,7 +76,6 @@ function makeNewTask(e) {
     const desc = data.get('task-desc');
     const deadline = data.get('task-deadline');
     const task = new Task(name, desc, deadline);
-    // currentFolder.addTask(task); 
     newTaskForm.reset();
     addTaskToDOM(task);
     currentFolder.addTask(task);
@@ -115,6 +116,10 @@ function addFoldertoDOM(folder) {
     folderWrapper.appendChild(clone);
     clone.querySelector('.folder-name').textContent = folder.name;
     clone.removeAttribute('id');
+    clone.addEventListener('click', () => {
+        openFolder(folder);
+        currentFolder = clone;
+    });
 }
 
 function deleteTask() {
@@ -123,7 +128,9 @@ function deleteTask() {
 
 function editTask() { } // should be able to change name, description, deadline, everything
 
-function addToFolder() { } // all tasks created inside a folder belong to that folder
+function addToFolder() {
+
+} // all tasks created inside a folder belong to that folder
 
 function showElement(el) {
     el.classList.remove('hidden');
@@ -134,11 +141,18 @@ function hideElement(el) {
 }
 
 function rewriteLocalStorage() {
-    // localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function renderHtml(folder) {
-    h1 = folder.name;
+    h1.textContent = folder.name;
+    folder.tasks.forEach(task => {
+        addTaskToDOM(task);
+    });
+}
+
+function openFolder(folder) {
+    renderHtml(folder);
+
 }
 
 
