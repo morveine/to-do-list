@@ -15,6 +15,7 @@ const taskFormCancelButton = document.getElementById('cancel-task');
 const folderFormCancelButton = document.getElementById('cancel-folder');
 
 const h1 = document.querySelector('h1');
+const home = document.getElementById('home-folder');
 
 // show and hide forms for adding new things
 addTaskButton.addEventListener('click', () => {
@@ -41,6 +42,7 @@ folderFormCancelButton.addEventListener('click', (e) => {
 
 newTaskForm.addEventListener('submit', makeNewTask);
 newFolderForm.addEventListener('submit', makeNewFolder);
+
 
 let n = 1;
 class Task {
@@ -78,8 +80,8 @@ function makeNewTask(e) {
     const task = new Task(name, desc, deadline);
     newTaskForm.reset();
     addTaskToDOM(task);
-    currentFolder.addTask(task);
-    rewriteLocalStorage()
+    addToFolder(task);
+    rewriteLocalStorage();
 }
 
 function addTaskToDOM(task) {  // TODO: change id of task when adding
@@ -118,7 +120,7 @@ function addFoldertoDOM(folder) {
     clone.removeAttribute('id');
     clone.addEventListener('click', () => {
         openFolder(folder);
-        currentFolder = clone;
+        currentFolder = folder;
     });
 }
 
@@ -128,8 +130,8 @@ function deleteTask() {
 
 function editTask() { } // should be able to change name, description, deadline, everything
 
-function addToFolder() {
-
+function addToFolder(task) {
+    currentFolder.addTask(task);
 } // all tasks created inside a folder belong to that folder
 
 function showElement(el) {
@@ -147,17 +149,19 @@ function renderHtml(folder) {
     h1.textContent = folder.name;
     folder.tasks.forEach(task => {
         addTaskToDOM(task);
+        // should also check if the task is done and render accordingly ?
     });
+    // also should clear the window
 }
 
 function openFolder(folder) {
+    currentFolder = folder;
     renderHtml(folder);
-
 }
 
 
 // rendering HTML should be based on the contents of every folder. localStorage should save a list of tasks with the key = folder name, by default the app should have a Home folder.
-// TODO: make it so 'Tasks' heading is changed to the folder name
+// done✅ TODO: make it so 'Tasks' heading is changed to the folder name 
 // figure out date rendering format in tasks, its ugly now
 // deleting folders should be confirmed by user if folder is not empty, tasks can go without confirmation
 // editing tasks - show button on hover
