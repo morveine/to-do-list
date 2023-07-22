@@ -84,7 +84,7 @@ function makeNewTask(e) {
     rewriteLocalStorage();
 }
 
-function addTaskToDOM(task) {  // TODO: change id of task when adding
+function addTaskToDOM(task) {
     const clone = taskTemplate.cloneNode(true);
     clone.classList.remove('hidden');
     taskWrapper.appendChild(clone);
@@ -113,8 +113,7 @@ function makeNewFolder(e) {
 }
 
 function addFoldertoDOM(folder) {
-    const clone = folderTemplate.cloneNode(true);
-    clone.classList.remove('hidden');
+    const clone = folderTemplate.content.firstElementChild.cloneNode(true);
     folderWrapper.appendChild(clone);
     clone.querySelector('.folder-name').textContent = folder.name;
     clone.removeAttribute('id');

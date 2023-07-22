@@ -32,24 +32,26 @@
     <aside>
         <h2>Folders</h2>
         <div id="folder-wrapper">
-            <button class="sidebar-folder hidden" id="folder-template">
-                <svg class="folder-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <title></title>
-                        <g id="Complete">
-                            <g id="folder">
-                                <path
-                                    d="M2,18.8V5.3A2.3,2.3,0,0,1,4.3,3H9.6a1.1,1.1,0,0,1,.8.4l2.8,3.2a1.1,1.1,0,0,0,.8.4h5.6A2.2,2.2,0,0,1,22,9.2v9.7A2.2,2.2,0,0,1,19.8,21H4.2A2.2,2.2,0,0,1,2,18.8Z"
-                                    fill="none" stroke="#27232C" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="1.2"></path>
+            <template id="folder-template">
+                <button class="sidebar-folder">
+                    <svg class="folder-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <title></title>
+                            <g id="Complete">
+                                <g id="folder">
+                                    <path
+                                        d="M2,18.8V5.3A2.3,2.3,0,0,1,4.3,3H9.6a1.1,1.1,0,0,1,.8.4l2.8,3.2a1.1,1.1,0,0,0,.8.4h5.6A2.2,2.2,0,0,1,22,9.2v9.7A2.2,2.2,0,0,1,19.8,21H4.2A2.2,2.2,0,0,1,2,18.8Z"
+                                        fill="none" stroke="#27232C" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="1.2"></path>
+                                </g>
                             </g>
                         </g>
-                    </g>
-                </svg>
-                <p><span class="folder-name"></span></p>
-            </button>
+                    </svg>
+                    <p><span class="folder-name"></span></p>
+                </button>
+            </template>
             <button class="sidebar-folder" id="home-folder">
                 <svg class="folder-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -93,41 +95,43 @@
         <div class="main-content">
             <div id="tasks-wrapper">
                 <h1>Tasks</h1>
-                <div class="task hidden" id="task-template">
-                    <div class="task-checkbox-wrapper">
-                        <div class="task-checkbox"><input type="checkbox" name="checkbox" id="checkbox1">
-                            <svg class="unchecked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg"
-                                fill="#000000">
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <path
-                                        d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z"
-                                        fill="none" stroke="#f96d87" stroke-linecap="round" stroke-linejoin="round"
-                                        transform="translate(3 3)"></path>
-                                </g>
-                            </svg>
-                            <svg class="checked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg" fill="#000000">
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <g fill="none" fill-rule="evenodd" stroke="#f96d87" stroke-linecap="round"
-                                        stroke-linejoin="round" transform="translate(3 3)">
+                <template id="task-template">
+                    <div class="task">
+                        <div class="task-checkbox-wrapper">
+                            <div class="task-checkbox"><input type="checkbox" name="checkbox" id="checkbox1">
+                                <svg class="unchecked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg"
+                                    fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
                                         <path
-                                            d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z">
-                                        </path>
-                                        <path d="m4.5 7.5 2 2 4-4"></path>
+                                            d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z"
+                                            fill="none" stroke="#f96d87" stroke-linecap="round" stroke-linejoin="round"
+                                            transform="translate(3 3)"></path>
                                     </g>
-                                </g>
-                            </svg>
+                                </svg>
+                                <svg class="checked" viewBox="2 2 17 17" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <g fill="none" fill-rule="evenodd" stroke="#f96d87" stroke-linecap="round"
+                                            stroke-linejoin="round" transform="translate(3 3)">
+                                            <path
+                                                d="m2.5.5h10c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z">
+                                            </path>
+                                            <path d="m4.5 7.5 2 2 4-4"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
                         </div>
+                        <div class="task-vertical">
+                            <label><span class="dom-task-name"></span></label>
+                            <span class="description"></span>
+                        </div>
+                        <div class="task-horisontal"><span class="deadline"></span></div>
                     </div>
-                    <div class="task-vertical">
-                        <label><span class="dom-task-name"></span></label>
-                        <span class="description"></span>
-                    </div>
-                    <div class="task-horisontal"><span class="deadline"></span></div>
-                </div>
+                </template>
             </div>
             <button class="add-task">
                 <svg height="20px" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" fill="#000000"
